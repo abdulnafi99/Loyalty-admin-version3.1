@@ -5,47 +5,77 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Admin Dashboard — Selagi Coffee</title>
-<meta name="theme-color" content="#0F0E0B">
+<meta name="theme-color" content="#FFF8F0">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Selagi Admin">
 <meta name="application-name" content="Selagi Admin">
 <meta name="description" content="Panel admin untuk sistem loyalty Selagi Coffee">
-<link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKNTcswI0MKvgwch0V6Lal3qR08ozQYkBACiB7xYPitnVeS5yWka1j3Zg&s=10">
-<link rel="apple-touch-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKNTcswI0MKvgwch0V6Lal3qR08ozQYkBACiB7xYPitnVeS5yWka1j3Zg&s=10">
+
+<!-- ✅ FAVICON & PWA ICON (auto-generated) -->
+<link rel="icon" type="image/png" href="https://kommodo.ai/i/Bss3vnEu1KyQ9XVUjrMK">
+<link rel="apple-touch-icon" href="https://kommodo.ai/i/Bss3vnEu1KyQ9XVUjrMK">
+
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root{
-  --bg:#0F0E0B;
-  --surface:#181612;
-  --surface-2:#1F1C15;
-  --surface-3:#272318;
-  --border:rgba(212,175,55,0.14);
-  --border-strong:rgba(212,175,55,0.35);
-  --gold:#D4AF37;
-  --gold-dark:#B8942E;
-  --gold-light:#E8D28A;
-  --text:#F5F1E8;
-  --text-muted:#9A9182;
-  --text-dim:#6B6358;
-  --green:#22C55E;
-  --green-dark:#16A34A;
-  --red:#EF4444;
-  --red-dark:#B91C1C;
+  /* ===== BACKGROUNDS ===== */
+  --bg:#FFF8F0;
+  --bg-2:#FFF1E0;
+  --surface:#FFFFFF;
+  --surface-2:#FFF7ED;
+  --surface-3:#FFEDD9;
+
+  /* ===== BORDERS ===== */
+  --border:rgba(217,119,6,0.16);
+  --border-strong:rgba(245,158,11,0.45);
+
+  /* ===== BRAND COLORS (cerah & ceria) ===== */
+  --gold:#F59E0B;
+  --gold-dark:#D97706;
+  --gold-light:#FCD34D;
+
+  --orange:#FB923C;
+  --pink:#EC4899;
+  --pink-soft:#FBCFE8;
+  --purple:#8B5CF6;
   --blue:#3B82F6;
-  --purple:#A855F7;
-  --radius:14px;
-  --radius-sm:10px;
-  --radius-lg:20px;
-  --shadow:0 10px 40px rgba(0,0,0,0.45);
-  --shadow-gold:0 8px 30px rgba(212,175,55,0.2);
+  --green:#10B981;
+  --green-dark:#059669;
+  --red:#EF4444;
+  --red-dark:#DC2626;
+  --teal:#14B8A6;
+
+  /* ===== TEXT ===== */
+  --text:#3B2A1A;
+  --text-muted:#8B7355;
+  --text-dim:#B8A48C;
+
+  /* ===== SHAPE ===== */
+  --radius:16px;
+  --radius-sm:12px;
+  --radius-lg:24px;
+
+  /* ===== SHADOWS (lembut, cerah) ===== */
+  --shadow:0 10px 40px rgba(180,120,40,0.12);
+  --shadow-soft:0 4px 20px rgba(180,120,40,0.08);
+  --shadow-gold:0 8px 26px rgba(245,158,11,0.32);
+
   --transition:0.25s cubic-bezier(0.16,1,0.3,1);
   --font:'Quicksand',sans-serif;
   --font-display:'Fredoka One',cursive;
-  --gold-gradient:linear-gradient(135deg,#D4AF37,#B8942E);
+
+  /* ===== GRADIENTS ===== */
+  --gold-gradient:linear-gradient(135deg,#FBBF24 0%,#F97316 100%);
+  --pink-gradient:linear-gradient(135deg,#F472B6 0%,#EC4899 100%);
+  --blue-gradient:linear-gradient(135deg,#60A5FA 0%,#3B82F6 100%);
+  --green-gradient:linear-gradient(135deg,#34D399 0%,#10B981 100%);
+  --purple-gradient:linear-gradient(135deg,#A78BFA 0%,#8B5CF6 100%);
+  --sunset-gradient:linear-gradient(135deg,#FDBA74 0%,#FB7185 100%);
+
   --safe-top:env(safe-area-inset-top,0px);
   --safe-right:env(safe-area-inset-right,0px);
   --safe-bottom:env(safe-area-inset-bottom,0px);
@@ -56,7 +86,11 @@ html,body{height:100%;}
 body{
   font-family:var(--font);
   background:var(--bg);
-  background-image:radial-gradient(circle at 20% 0%, #1A1611 0%, #0F0E0B 55%);
+  background-image:
+    radial-gradient(circle at 10% -10%, #FFE7C2 0%, transparent 45%),
+    radial-gradient(circle at 95% 5%, #FFD9E8 0%, transparent 40%),
+    radial-gradient(circle at 50% 110%, #D9F2FF 0%, transparent 45%),
+    linear-gradient(180deg,#FFF8F0 0%,#FFF3E6 100%);
   background-attachment:fixed;
   color:var(--text);
   -webkit-font-smoothing:antialiased;
@@ -64,11 +98,11 @@ body{
   min-height:100dvh;
   overscroll-behavior-y:none;
 }
-::selection{background:rgba(212,175,55,0.35);color:#F5F1E8;}
+::selection{background:rgba(245,158,11,0.3);color:#3B2A1A;}
 ::-webkit-scrollbar{width:8px;height:8px;}
 ::-webkit-scrollbar-track{background:transparent;}
-::-webkit-scrollbar-thumb{background:rgba(212,175,55,0.3);border-radius:10px;}
-::-webkit-scrollbar-thumb:hover{background:rgba(212,175,55,0.5);}
+::-webkit-scrollbar-thumb{background:rgba(245,158,11,0.4);border-radius:10px;}
+::-webkit-scrollbar-thumb:hover{background:rgba(245,158,11,0.65);}
 
 input,textarea,button,select{font-family:inherit;color:inherit;}
 
@@ -76,18 +110,18 @@ input,textarea,button,select{font-family:inherit;color:inherit;}
 .offline-banner{
   position:fixed;
   top:0;left:0;right:0;
-  background:linear-gradient(90deg,#B91C1C,#DC2626);
+  background:linear-gradient(90deg,#DC2626,#F87171);
   color:#fff;font-weight:800;font-size:0.72rem;
   text-align:center;padding:8px;
   padding-top:calc(8px + var(--safe-top));
   z-index:9999;
   display:flex;align-items:center;justify-content:center;gap:8px;
   letter-spacing:0.3px;
-  box-shadow:0 4px 14px rgba(0,0,0,0.4);
+  box-shadow:0 4px 14px rgba(0,0,0,0.15);
   animation:slideDown 0.35s cubic-bezier(0.16,1,0.3,1);
 }
 .offline-banner.online{
-  background:linear-gradient(90deg,#16A34A,#22C55E);
+  background:linear-gradient(90deg,#059669,#34D399);
 }
 @keyframes slideDown{from{transform:translateY(-100%);}to{transform:translateY(0);}}
 .offline-banner.hidden{display:none;}
@@ -97,37 +131,43 @@ input,textarea,button,select{font-family:inherit;color:inherit;}
   position:fixed;inset:0;z-index:100;
   display:flex;align-items:center;justify-content:center;
   padding:24px;
-  background:radial-gradient(circle at 50% 30%, #1A1611 0%, #0F0E0B 60%);
+  background:
+    radial-gradient(circle at 20% 15%, #FFE0B8 0%, transparent 50%),
+    radial-gradient(circle at 85% 80%, #FFCFE0 0%, transparent 50%),
+    radial-gradient(circle at 50% 110%, #CFEBFF 0%, transparent 55%),
+    linear-gradient(160deg,#FFF9F2 0%,#FFF1E0 100%);
   transition:opacity 0.5s ease,visibility 0.5s ease;
 }
 #loginScreen.hide{opacity:0;visibility:hidden;pointer-events:none;}
 .login-card{
-  background:var(--surface);
-  border:1px solid var(--border-strong);
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(245,158,11,0.25);
   border-radius:var(--radius-lg);
   padding:36px 28px 30px;
   width:100%;max-width:400px;
-  box-shadow:var(--shadow),0 0 60px rgba(212,175,55,0.08);
+  box-shadow:0 24px 60px rgba(200,140,60,0.18),0 0 60px rgba(255,180,120,0.18);
   position:relative;overflow:hidden;
   animation:cardIn 0.6s cubic-bezier(0.16,1,0.3,1);
 }
 @keyframes cardIn{from{opacity:0;transform:translateY(20px) scale(0.97);}to{opacity:1;transform:none;}}
 .login-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  content:'';position:absolute;top:0;left:0;right:0;height:5px;
+  background:linear-gradient(90deg,#FBBF24,#FB923C,#EC4899,#8B5CF6,#3B82F6);
 }
 .login-logo{
-  width:72px;height:72px;border-radius:50%;
-  border:2px solid var(--gold);
-  box-shadow:0 0 30px rgba(212,175,55,0.35);
+  width:78px;height:78px;border-radius:50%;
+  border:3px solid #fff;
+  box-shadow:0 8px 24px rgba(245,158,11,0.35),0 0 0 4px rgba(245,158,11,0.18);
   display:block;margin:0 auto 16px;
   object-fit:cover;background:#fff;
 }
 .login-badge{
   display:inline-flex;align-items:center;gap:6px;
-  background:rgba(212,175,55,0.12);
-  border:1px solid var(--border-strong);
-  color:var(--gold-light);
+  background:linear-gradient(135deg,#FEF3C7,#FDE68A);
+  border:1px solid rgba(245,158,11,0.4);
+  color:#B45309;
   padding:5px 14px;border-radius:20px;
   font-size:0.65rem;font-weight:800;letter-spacing:1px;
   margin:0 auto 14px;display:flex;width:fit-content;
@@ -135,21 +175,23 @@ input,textarea,button,select{font-family:inherit;color:inherit;}
 }
 .login-card h1{
   font-family:var(--font-display);
-  font-size:1.35rem;
+  font-size:1.45rem;
   text-align:center;
-  color:var(--text);
+  background:linear-gradient(135deg,#D97706,#EC4899);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
   margin-bottom:4px;letter-spacing:0.5px;
 }
 .login-card p.sub{
   text-align:center;color:var(--text-muted);
-  font-size:0.72rem;font-weight:600;
+  font-size:0.72rem;font-weight:700;
   margin-bottom:22px;
 }
 .field{margin-bottom:14px;}
 .field label{
-  display:block;font-size:0.68rem;font-weight:700;
+  display:block;font-size:0.68rem;font-weight:800;
   color:var(--text-muted);margin-bottom:6px;
-  letter-spacing:0.3px;text-transform:uppercase;
+  letter-spacing:0.4px;text-transform:uppercase;
 }
 .input-wrap{position:relative;}
 .input-wrap i{
@@ -160,40 +202,40 @@ input,textarea,button,select{font-family:inherit;color:inherit;}
 }
 .input-wrap input{
   width:100%;padding:12px 14px 12px 40px;
-  background:var(--surface-2);
-  border:1px solid var(--border);
+  background:#FFFFFF;
+  border:1.5px solid rgba(217,119,6,0.2);
   border-radius:var(--radius-sm);
-  font-size:0.9rem;font-weight:600;
+  font-size:0.9rem;font-weight:700;
   color:var(--text);
   outline:none;transition:all var(--transition);
 }
-.input-wrap input::placeholder{color:var(--text-dim);}
+.input-wrap input::placeholder{color:var(--text-dim);font-weight:600;}
 .input-wrap input:focus{
   border-color:var(--gold);
-  background:rgba(212,175,55,0.05);
-  box-shadow:0 0 0 3px rgba(212,175,55,0.12);
+  background:#FFFDF8;
+  box-shadow:0 0 0 4px rgba(245,158,11,0.15);
 }
 .btn-gold{
   width:100%;padding:13px;
   background:var(--gold-gradient);
-  color:#1A1815;border:none;
+  color:#fff;border:none;
   border-radius:var(--radius-sm);
-  font-size:0.85rem;font-weight:800;
+  font-size:0.9rem;font-weight:800;
   letter-spacing:0.5px;cursor:pointer;
   display:flex;align-items:center;justify-content:center;gap:8px;
   transition:all var(--transition);
   box-shadow:var(--shadow-gold);
 }
-.btn-gold:hover{transform:translateY(-1px);box-shadow:0 12px 36px rgba(212,175,55,0.3);}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(245,158,11,0.42);}
 .btn-gold:active{transform:scale(0.98);}
 .btn-gold:disabled{opacity:0.5;cursor:not-allowed;}
 .login-hint{
   text-align:center;font-size:0.65rem;color:var(--text-dim);
-  margin-top:14px;font-weight:600;
+  margin-top:14px;font-weight:700;
 }
 .login-install-hint{
-  text-align:center;font-size:0.62rem;color:var(--gold);
-  margin-top:8px;font-weight:700;
+  text-align:center;font-size:0.62rem;color:var(--gold-dark);
+  margin-top:8px;font-weight:800;
 }
 
 /* ============ APP SHELL ============ */
@@ -203,35 +245,39 @@ input,textarea,button,select{font-family:inherit;color:inherit;}
 /* Sidebar (desktop) */
 .sidebar{
   position:fixed;top:0;left:0;bottom:0;width:250px;
-  background:linear-gradient(180deg,#141210 0%,#0F0E0B 100%);
-  border-right:1px solid var(--border);
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-right:1px solid rgba(217,119,6,0.14);
   padding:22px 16px;
   display:flex;flex-direction:column;
   z-index:50;transition:transform 0.3s ease;
+  box-shadow:4px 0 30px rgba(200,140,60,0.06);
 }
 .sidebar-brand{
   display:flex;align-items:center;gap:10px;
   padding:0 8px 20px;
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid rgba(217,119,6,0.14);
   margin-bottom:20px;
 }
 .sidebar-brand img{
-  width:40px;height:40px;border-radius:50%;
-  border:1.5px solid var(--gold);object-fit:cover;
+  width:42px;height:42px;border-radius:50%;
+  border:2.5px solid #fff;object-fit:cover;
+  box-shadow:0 4px 12px rgba(245,158,11,0.3),0 0 0 2px rgba(245,158,11,0.25);
 }
 .sidebar-brand .brand-text strong{
   display:block;font-family:var(--font-display);
-  font-size:0.95rem;color:var(--text);letter-spacing:0.3px;
+  font-size:0.98rem;color:var(--text);letter-spacing:0.3px;
 }
 .sidebar-brand .brand-text span{
-  font-size:0.6rem;color:var(--gold);font-weight:800;
+  font-size:0.6rem;color:var(--gold-dark);font-weight:800;
   letter-spacing:1.5px;text-transform:uppercase;
 }
 .sidebar-nav{flex:1;display:flex;flex-direction:column;gap:4px;overflow-y:auto;}
 .nav-item{
   display:flex;align-items:center;gap:12px;
   padding:11px 14px;border-radius:var(--radius-sm);
-  color:var(--text-muted);font-weight:700;font-size:0.82rem;
+  color:var(--text-muted);font-weight:800;font-size:0.82rem;
   cursor:pointer;border:none;background:transparent;
   width:100%;text-align:left;
   transition:all var(--transition);
@@ -242,47 +288,49 @@ input,textarea,button,select{font-family:inherit;color:inherit;}
   font-size:1rem;flex-shrink:0;
   transition:color var(--transition);
 }
-.nav-item:hover{background:var(--surface-2);color:var(--text);}
+.nav-item:hover{background:rgba(245,158,11,0.1);color:var(--text);}
 .nav-item:hover i{color:var(--gold);}
 .nav-item.active{
-  background:linear-gradient(90deg,rgba(212,175,55,0.18) 0%,rgba(212,175,55,0.05) 100%);
-  color:var(--gold-light);
+  background:linear-gradient(90deg,rgba(251,191,36,0.22) 0%,rgba(249,115,22,0.08) 100%);
+  color:#B45309;
+  box-shadow:0 4px 14px rgba(245,158,11,0.15);
 }
-.nav-item.active i{color:var(--gold);}
+.nav-item.active i{color:var(--gold-dark);}
 .nav-item.active::before{
   content:'';position:absolute;left:0;top:15%;bottom:15%;
-  width:3px;background:var(--gold);border-radius:0 3px 3px 0;
+  width:4px;background:var(--gold-gradient);border-radius:0 4px 4px 0;
 }
 .nav-item .nav-badge{
   margin-left:auto;
-  background:var(--gold);color:#1A1815;
+  background:var(--gold-gradient);color:#fff;
   font-size:0.6rem;font-weight:800;
-  padding:2px 7px;border-radius:10px;
+  padding:2px 8px;border-radius:10px;
   min-width:20px;text-align:center;
+  box-shadow:0 2px 6px rgba(245,158,11,0.35);
 }
 .sidebar-foot{
   padding-top:14px;margin-top:14px;
-  border-top:1px solid var(--border);
+  border-top:1px solid rgba(217,119,6,0.14);
 }
 .btn-logout{
   display:flex;align-items:center;gap:10px;
   width:100%;padding:11px 14px;
-  background:rgba(239,68,68,0.1);
-  border:1px solid rgba(239,68,68,0.25);
-  color:#FCA5A5;border-radius:var(--radius-sm);
-  font-size:0.78rem;font-weight:700;
+  background:linear-gradient(135deg,#FEE2E2,#FECACA);
+  border:1px solid rgba(239,68,68,0.3);
+  color:#B91C1C;border-radius:var(--radius-sm);
+  font-size:0.78rem;font-weight:800;
   cursor:pointer;transition:all var(--transition);
 }
-.btn-logout:hover{background:rgba(239,68,68,0.18);color:#FEE2E2;}
+.btn-logout:hover{background:linear-gradient(135deg,#FECACA,#FCA5A5);color:#7F1D1D;transform:translateY(-1px);}
 .btn-logout i{font-size:0.85rem;}
 
 /* Install button (PWA) */
 .btn-install{
   display:flex;align-items:center;justify-content:center;gap:8px;
   width:100%;padding:11px 14px;
-  background:linear-gradient(135deg,rgba(212,175,55,0.22),rgba(212,175,55,0.08));
-  border:1px solid var(--border-strong);
-  color:var(--gold-light);border-radius:var(--radius-sm);
+  background:linear-gradient(135deg,#FEF3C7,#FDE68A);
+  border:1.5px solid rgba(245,158,11,0.45);
+  color:#B45309;border-radius:var(--radius-sm);
   font-size:0.78rem;font-weight:800;
   cursor:pointer;transition:all var(--transition);
   margin-bottom:8px;
@@ -290,13 +338,14 @@ input,textarea,button,select{font-family:inherit;color:inherit;}
   animation:pulseGold 2.5s ease-in-out infinite;
 }
 .btn-install:hover{
-  background:linear-gradient(135deg,rgba(212,175,55,0.32),rgba(212,175,55,0.15));
-  color:var(--gold);
+  background:linear-gradient(135deg,#FDE68A,#FCD34D);
+  color:#92400E;
   border-color:var(--gold);
+  transform:translateY(-1px);
 }
 @keyframes pulseGold{
-  0%,100%{box-shadow:0 0 0 0 rgba(212,175,55,0.35);}
-  50%{box-shadow:0 0 0 8px rgba(212,175,55,0);}
+  0%,100%{box-shadow:0 0 0 0 rgba(245,158,11,0.45);}
+  50%{box-shadow:0 0 0 10px rgba(245,158,11,0);}
 }
 
 /* Main content */
@@ -318,30 +367,37 @@ input,textarea,button,select{font-family:inherit;color:inherit;}
 }
 .page-head h2{
   font-family:var(--font-display);
-  font-size:1.35rem;color:var(--text);
+  font-size:1.45rem;
+  background:linear-gradient(135deg,#D97706,#EC4899);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
   letter-spacing:0.5px;display:flex;align-items:center;gap:10px;
 }
-.page-head h2 i{color:var(--gold);font-size:1.1rem;}
+.page-head h2 i{
+  -webkit-text-fill-color:var(--gold-dark);
+  color:var(--gold-dark);font-size:1.15rem;
+}
 .page-head .page-sub{
   color:var(--text-muted);font-size:0.72rem;
-  font-weight:600;margin-top:3px;
+  font-weight:700;margin-top:3px;
 }
 
 /* Cards */
 .card{
-  background:var(--surface);
-  border:1px solid var(--border);
+  background:#FFFFFF;
+  border:1px solid rgba(217,119,6,0.12);
   border-radius:var(--radius);
   padding:18px;
   transition:all var(--transition);
+  box-shadow:var(--shadow-soft);
 }
-.card:hover{border-color:var(--border-strong);}
+.card:hover{border-color:rgba(245,158,11,0.35);box-shadow:0 10px 30px rgba(200,140,60,0.14);}
 .card-title{
-  font-size:0.85rem;font-weight:800;color:var(--text);
+  font-size:0.88rem;font-weight:800;color:var(--text);
   margin-bottom:14px;display:flex;align-items:center;gap:8px;
   letter-spacing:0.3px;
 }
-.card-title i{color:var(--gold);}
+.card-title i{color:var(--gold-dark);}
 
 /* Stats grid */
 .stats-grid{
@@ -350,76 +406,83 @@ input,textarea,button,select{font-family:inherit;color:inherit;}
   gap:14px;margin-bottom:22px;
 }
 .stat-card{
-  background:var(--surface);
-  border:1px solid var(--border);
+  background:#FFFFFF;
+  border:1px solid rgba(217,119,6,0.12);
   border-radius:var(--radius);
   padding:16px 18px;
   position:relative;overflow:hidden;
   transition:all var(--transition);
+  box-shadow:var(--shadow-soft);
 }
 .stat-card:hover{
-  border-color:var(--border-strong);
-  transform:translateY(-2px);
-  box-shadow:var(--shadow-gold);
+  border-color:rgba(245,158,11,0.35);
+  transform:translateY(-3px);
+  box-shadow:0 14px 34px rgba(200,140,60,0.18);
 }
 .stat-card::before{
-  content:'';position:absolute;top:0;right:0;
-  width:80px;height:80px;
-  background:radial-gradient(circle,rgba(212,175,55,0.12),transparent 70%);
+  content:'';position:absolute;top:-30px;right:-30px;
+  width:110px;height:110px;
+  background:radial-gradient(circle,rgba(251,191,36,0.22),transparent 70%);
   border-radius:50%;pointer-events:none;
 }
+.stat-card:nth-child(2)::before{background:radial-gradient(circle,rgba(16,185,129,0.2),transparent 70%);}
+.stat-card:nth-child(3)::before{background:radial-gradient(circle,rgba(59,130,246,0.2),transparent 70%);}
+.stat-card:nth-child(4)::before{background:radial-gradient(circle,rgba(139,92,246,0.2),transparent 70%);}
 .stat-icon{
-  width:40px;height:40px;border-radius:10px;
-  background:rgba(212,175,55,0.14);
-  border:1px solid var(--border-strong);
+  width:42px;height:42px;border-radius:12px;
+  background:linear-gradient(135deg,#FEF3C7,#FDE68A);
+  border:1px solid rgba(245,158,11,0.35);
   display:flex;align-items:center;justify-content:center;
-  color:var(--gold);font-size:1rem;
+  color:#B45309;font-size:1.05rem;
   margin-bottom:12px;
+  box-shadow:0 4px 12px rgba(245,158,11,0.2);
 }
-.stat-icon.green{color:var(--green);background:rgba(34,197,94,0.12);border-color:rgba(34,197,94,0.3);}
-.stat-icon.blue{color:var(--blue);background:rgba(59,130,246,0.12);border-color:rgba(59,130,246,0.3);}
-.stat-icon.purple{color:var(--purple);background:rgba(168,85,247,0.12);border-color:rgba(168,85,247,0.3);}
+.stat-icon.green{color:#047857;background:linear-gradient(135deg,#D1FAE5,#A7F3D0);border-color:rgba(16,185,129,0.35);box-shadow:0 4px 12px rgba(16,185,129,0.2);}
+.stat-icon.blue{color:#1D4ED8;background:linear-gradient(135deg,#DBEAFE,#BFDBFE);border-color:rgba(59,130,246,0.35);box-shadow:0 4px 12px rgba(59,130,246,0.2);}
+.stat-icon.purple{color:#6D28D9;background:linear-gradient(135deg,#EDE9FE,#DDD6FE);border-color:rgba(139,92,246,0.35);box-shadow:0 4px 12px rgba(139,92,246,0.2);}
 .stat-value{
   font-family:var(--font-display);
-  font-size:1.65rem;color:var(--text);
+  font-size:1.7rem;
+  background:linear-gradient(135deg,#D97706,#B45309);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
   letter-spacing:0.5px;line-height:1.1;
 }
 .stat-label{
   font-size:0.65rem;color:var(--text-muted);
-  font-weight:700;letter-spacing:0.6px;
+  font-weight:800;letter-spacing:0.7px;
   text-transform:uppercase;margin-top:4px;
 }
 
 /* Forms */
 .form-row{margin-bottom:12px;}
 .form-row label{
-  display:block;font-size:0.68rem;font-weight:700;
+  display:block;font-size:0.68rem;font-weight:800;
   color:var(--text-muted);margin-bottom:6px;
-  letter-spacing:0.3px;text-transform:uppercase;
+  letter-spacing:0.4px;text-transform:uppercase;
 }
 .form-control{
   width:100%;padding:11px 14px;
-  background:var(--surface-2);
-  border:1px solid var(--border);
+  background:#FFFFFF;
+  border:1.5px solid rgba(217,119,6,0.18);
   border-radius:var(--radius-sm);
-  font-size:0.85rem;font-weight:600;
+  font-size:0.85rem;font-weight:700;
   color:var(--text);outline:none;
   transition:all var(--transition);
 }
-.form-control::placeholder{color:var(--text-dim);}
+.form-control::placeholder{color:var(--text-dim);font-weight:600;}
 .form-control:focus{
   border-color:var(--gold);
-  background:rgba(212,175,55,0.04);
-  box-shadow:0 0 0 3px rgba(212,175,55,0.12);
+  background:#FFFDF8;
+  box-shadow:0 0 0 4px rgba(245,158,11,0.15);
 }
 textarea.form-control{resize:vertical;min-height:70px;line-height:1.5;}
 input[type="date"].form-control{
   -webkit-appearance:auto;appearance:auto;
-  cursor:pointer;color-scheme:dark;
+  cursor:pointer;color-scheme:light;
 }
 input[type="date"].form-control::-webkit-calendar-picker-indicator{
-  filter:invert(0.7) sepia(1) saturate(5) hue-rotate(10deg);
-  cursor:pointer;
+  filter:none;cursor:pointer;opacity:0.7;
 }
 
 /* Buttons */
@@ -432,14 +495,14 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
   white-space:nowrap;
 }
 .btn:active{transform:scale(0.97);}
-.btn-gold-sm{background:var(--gold-gradient);color:#1A1815;box-shadow:0 3px 14px rgba(212,175,55,0.25);}
-.btn-gold-sm:hover{box-shadow:0 5px 20px rgba(212,175,55,0.35);}
-.btn-outline{background:transparent;color:var(--gold-light);border:1px solid var(--border-strong);}
-.btn-outline:hover{background:rgba(212,175,55,0.08);}
-.btn-danger{background:rgba(239,68,68,0.14);color:#FCA5A5;border:1px solid rgba(239,68,68,0.3);}
-.btn-danger:hover{background:rgba(239,68,68,0.22);color:#FEE2E2;}
-.btn-ghost{background:var(--surface-2);color:var(--text-muted);border:1px solid var(--border);}
-.btn-ghost:hover{background:var(--surface-3);color:var(--text);}
+.btn-gold-sm{background:var(--gold-gradient);color:#fff;box-shadow:0 4px 14px rgba(245,158,11,0.35);}
+.btn-gold-sm:hover{box-shadow:0 6px 22px rgba(245,158,11,0.5);transform:translateY(-1px);}
+.btn-outline{background:#FFFFFF;color:#B45309;border:1.5px solid rgba(245,158,11,0.4);}
+.btn-outline:hover{background:linear-gradient(135deg,#FEF3C7,#FDE68A);border-color:var(--gold);}
+.btn-danger{background:linear-gradient(135deg,#FEE2E2,#FECACA);color:#B91C1C;border:1px solid rgba(239,68,68,0.3);}
+.btn-danger:hover{background:linear-gradient(135deg,#FECACA,#FCA5A5);color:#7F1D1D;}
+.btn-ghost{background:#FFF7ED;color:var(--text-muted);border:1px solid rgba(217,119,6,0.16);}
+.btn-ghost:hover{background:#FFEDD9;color:var(--text);}
 .btn-sm{padding:7px 11px;font-size:0.7rem;}
 .btn-block{width:100%;}
 
@@ -447,55 +510,69 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
 .search-bar{position:relative;margin-bottom:16px;}
 .search-bar i{
   position:absolute;left:14px;top:50%;
-  transform:translateY(-50%);color:var(--gold);font-size:0.85rem;
+  transform:translateY(-50%);color:var(--gold-dark);font-size:0.85rem;
 }
-.search-bar input{padding-left:40px;}
+.search-bar input{
+  padding-left:40px;
+  background:#FFFFFF;
+  border:1.5px solid rgba(217,119,6,0.18);
+  box-shadow:0 2px 8px rgba(200,140,60,0.05);
+}
 
 /* Customer list */
 .customer-list{display:flex;flex-direction:column;gap:8px;max-height:520px;overflow-y:auto;padding-right:4px;}
 .customer-row{
   display:flex;align-items:center;gap:12px;
   padding:12px 14px;
-  background:var(--surface-2);
-  border:1px solid var(--border);
+  background:#FFFDF8;
+  border:1px solid rgba(217,119,6,0.12);
   border-radius:var(--radius-sm);
   transition:all var(--transition);
 }
-.customer-row:hover{border-color:var(--border-strong);background:var(--surface-3);}
+.customer-row:hover{
+  border-color:rgba(245,158,11,0.4);
+  background:linear-gradient(135deg,#FFF9F0,#FFEFDC);
+  transform:translateX(2px);
+  box-shadow:0 6px 18px rgba(200,140,60,0.12);
+}
 .customer-avatar{
-  width:38px;height:38px;border-radius:50%;
+  width:40px;height:40px;border-radius:50%;
   background:var(--gold-gradient);
   display:flex;align-items:center;justify-content:center;
-  font-weight:800;color:#1A1815;font-size:0.9rem;
+  font-weight:800;color:#fff;font-size:0.95rem;
   flex-shrink:0;text-transform:uppercase;
+  box-shadow:0 4px 12px rgba(245,158,11,0.35);
 }
 .customer-info{flex:1;min-width:0;}
-.customer-info h4{font-size:0.82rem;font-weight:800;color:var(--text);margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.customer-info p{font-size:0.65rem;color:var(--text-muted);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.customer-info h4{font-size:0.85rem;font-weight:800;color:var(--text);margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.customer-info p{font-size:0.65rem;color:var(--text-muted);font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .customer-pts{
   font-family:var(--font-display);
-  color:var(--gold);font-size:0.95rem;
+  background:linear-gradient(135deg,#D97706,#EC4899);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  font-size:1rem;
   flex-shrink:0;text-align:right;
 }
-.customer-pts small{display:block;color:var(--text-dim);font-size:0.55rem;font-family:var(--font);font-weight:700;}
+.customer-pts small{display:block;color:var(--text-dim);font-size:0.55rem;font-family:var(--font);font-weight:800;}
 .customer-actions{display:flex;gap:4px;flex-shrink:0;}
 .icon-btn{
-  width:30px;height:30px;border-radius:8px;
+  width:32px;height:32px;border-radius:10px;
   display:flex;align-items:center;justify-content:center;
-  background:transparent;border:1px solid var(--border);
+  background:#FFFFFF;border:1px solid rgba(217,119,6,0.16);
   color:var(--text-muted);cursor:pointer;
-  font-size:0.7rem;transition:all var(--transition);
+  font-size:0.72rem;transition:all var(--transition);
 }
-.icon-btn:hover{background:var(--surface-3);color:var(--gold);border-color:var(--border-strong);}
-.icon-btn.danger:hover{color:#FCA5A5;border-color:rgba(239,68,68,0.4);background:rgba(239,68,68,0.1);}
+.icon-btn:hover{background:linear-gradient(135deg,#FEF3C7,#FDE68A);color:#B45309;border-color:rgba(245,158,11,0.5);transform:translateY(-1px);}
+.icon-btn.danger:hover{color:#B91C1C;border-color:rgba(239,68,68,0.5);background:linear-gradient(135deg,#FEE2E2,#FECACA);}
 
 /* Empty / loading state */
 .empty-state{
   text-align:center;padding:36px 20px;
   color:var(--text-dim);
 }
-.empty-state i{font-size:2rem;margin-bottom:12px;color:var(--text-dim);opacity:0.6;display:block;}
-.empty-state p{font-size:0.78rem;font-weight:600;}
+.empty-state i{font-size:2rem;margin-bottom:12px;color:var(--gold);opacity:0.55;display:block;}
+.empty-state p{font-size:0.78rem;font-weight:700;}
 
 /* Grid for cards */
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
@@ -505,29 +582,36 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
 .data-row{
   display:flex;align-items:center;gap:12px;
   padding:12px 14px;
-  background:var(--surface-2);
-  border:1px solid var(--border);
+  background:#FFFDF8;
+  border:1px solid rgba(217,119,6,0.12);
   border-radius:var(--radius-sm);
   margin-bottom:8px;
   transition:all var(--transition);
 }
-.data-row:hover{border-color:var(--border-strong);}
+.data-row:hover{
+  border-color:rgba(245,158,11,0.4);
+  background:linear-gradient(135deg,#FFF9F0,#FFEFDC);
+  box-shadow:0 6px 18px rgba(200,140,60,0.1);
+}
 .data-row .thumb{
-  width:44px;height:44px;border-radius:8px;
-  background:var(--surface-3);border:1px solid var(--border);
+  width:46px;height:46px;border-radius:10px;
+  background:linear-gradient(135deg,#FEF3C7,#FDE68A);
+  border:1px solid rgba(245,158,11,0.3);
   object-fit:cover;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
-  color:var(--gold);font-size:0.9rem;
+  color:#B45309;font-size:0.95rem;
+  overflow:hidden;
 }
 .data-row .thumb.img-thumb{object-fit:cover;}
 .data-row .data-info{flex:1;min-width:0;}
-.data-row .data-info h5{font-size:0.8rem;font-weight:800;color:var(--text);margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.data-row .data-info p{font-size:0.65rem;color:var(--text-muted);font-weight:600;line-height:1.4;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+.data-row .data-info h5{font-size:0.82rem;font-weight:800;color:var(--text);margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.data-row .data-info p{font-size:0.65rem;color:var(--text-muted);font-weight:700;line-height:1.4;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
 .data-row .data-meta{
   display:inline-flex;align-items:center;gap:4px;
   font-size:0.6rem;font-weight:800;
-  color:var(--gold);background:rgba(212,175,55,0.1);
-  padding:2px 8px;border-radius:6px;margin-top:4px;
+  color:#B45309;background:linear-gradient(135deg,#FEF3C7,#FDE68A);
+  border:1px solid rgba(245,158,11,0.3);
+  padding:3px 9px;border-radius:8px;margin-top:5px;
 }
 
 /* Upload */
@@ -536,18 +620,18 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
 .upload-label{
   display:flex;align-items:center;justify-content:center;
   gap:8px;padding:14px;border-radius:var(--radius-sm);
-  background:var(--surface-2);
-  border:1.5px dashed var(--border-strong);
-  font-size:0.75rem;font-weight:700;
+  background:#FFFDF8;
+  border:2px dashed rgba(245,158,11,0.45);
+  font-size:0.75rem;font-weight:800;
   color:var(--text-muted);transition:all var(--transition);
   cursor:pointer;text-align:center;
 }
 .upload-wrap:hover .upload-label,
 .upload-wrap:focus-within .upload-label{
-  border-color:var(--gold);color:var(--gold-light);
-  background:rgba(212,175,55,0.06);
+  border-color:var(--gold);color:#B45309;
+  background:linear-gradient(135deg,#FFF9F0,#FFEFDC);
 }
-.upload-label i{color:var(--gold);}
+.upload-label i{color:var(--gold-dark);}
 .upload-preview{
   position:relative;margin-top:10px;display:none;
 }
@@ -555,28 +639,29 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
 .upload-preview img{
   width:100%;max-height:260px;object-fit:contain;
   border-radius:var(--radius-sm);
-  border:1px solid var(--border-strong);
-  background:#000;
+  border:1px solid rgba(245,158,11,0.35);
+  background:#FFF8F0;
 }
 .upload-preview .rm{
   position:absolute;top:8px;right:8px;
-  width:28px;height:28px;border-radius:50%;
-  background:rgba(15,14,11,0.9);
-  border:1px solid var(--border-strong);
-  color:var(--gold-light);cursor:pointer;
+  width:30px;height:30px;border-radius:50%;
+  background:linear-gradient(135deg,#EF4444,#DC2626);
+  border:none;
+  color:#fff;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
-  font-size:0.7rem;
+  font-size:0.72rem;
+  box-shadow:0 4px 12px rgba(239,68,68,0.4);
 }
 .upload-info{
-  display:block;font-size:0.6rem;font-weight:700;
-  color:var(--gold);margin-top:6px;line-height:1.4;
+  display:block;font-size:0.6rem;font-weight:800;
+  color:var(--gold-dark);margin-top:6px;line-height:1.4;
   word-break:break-word;
 }
 
 /* Modal */
 .modal-overlay{
   position:fixed;inset:0;z-index:200;
-  background:rgba(0,0,0,0.75);
+  background:rgba(60,40,20,0.4);
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
   display:flex;align-items:center;justify-content:center;
@@ -586,13 +671,13 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
 }
 .modal-overlay.active{opacity:1;visibility:visible;}
 .modal{
-  background:var(--surface);
-  border:1px solid var(--border-strong);
+  background:#FFFFFF;
+  border:1px solid rgba(245,158,11,0.3);
   border-radius:var(--radius-lg);
   padding:26px 22px;
   width:100%;max-width:420px;
   max-height:90vh;overflow-y:auto;
-  box-shadow:var(--shadow);
+  box-shadow:0 30px 70px rgba(120,80,20,0.25);
   transform:scale(0.94) translateY(10px);
   transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
   position:relative;
@@ -600,30 +685,33 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
 .modal-overlay.active .modal{transform:scale(1) translateY(0);}
 .modal-close{
   position:absolute;top:14px;right:14px;
-  width:30px;height:30px;border-radius:50%;
-  background:var(--surface-2);border:1px solid var(--border);
+  width:32px;height:32px;border-radius:50%;
+  background:#FFF7ED;border:1px solid rgba(217,119,6,0.2);
   color:var(--text-muted);cursor:pointer;
   display:flex;align-items:center;justify-content:center;
-  font-size:0.75rem;transition:all var(--transition);
+  font-size:0.78rem;transition:all var(--transition);
 }
-.modal-close:hover{background:var(--surface-3);color:var(--gold);}
+.modal-close:hover{background:linear-gradient(135deg,#FEF3C7,#FDE68A);color:#B45309;transform:rotate(90deg);}
 .modal-badge{
   display:inline-flex;align-items:center;gap:6px;
-  background:rgba(212,175,55,0.12);
-  border:1px solid var(--border-strong);
-  color:var(--gold-light);
+  background:linear-gradient(135deg,#FEF3C7,#FDE68A);
+  border:1px solid rgba(245,158,11,0.4);
+  color:#B45309;
   padding:4px 12px;border-radius:20px;
   font-size:0.6rem;font-weight:800;letter-spacing:0.8px;
   text-transform:uppercase;margin-bottom:14px;
 }
 .modal h3{
   font-family:var(--font-display);
-  font-size:1.1rem;color:var(--text);
+  font-size:1.15rem;
+  background:linear-gradient(135deg,#D97706,#EC4899);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
   margin-bottom:6px;
 }
 .modal .modal-sub{
   font-size:0.72rem;color:var(--text-muted);
-  font-weight:600;margin-bottom:18px;line-height:1.5;
+  font-weight:700;margin-bottom:18px;line-height:1.5;
 }
 .modal-actions{display:flex;gap:8px;margin-top:16px;}
 .modal-actions .btn{flex:1;}
@@ -634,24 +722,25 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
   counter-increment:step;
   display:flex;gap:12px;align-items:flex-start;
   padding:12px;
-  background:var(--surface-2);
-  border:1px solid var(--border);
+  background:#FFFDF8;
+  border:1px solid rgba(217,119,6,0.14);
   border-radius:var(--radius-sm);
   margin-bottom:8px;
   font-size:0.75rem;
-  font-weight:600;
+  font-weight:700;
   color:var(--text);
   line-height:1.5;
 }
 .ios-steps li::before{
   content:counter(step);
   width:26px;height:26px;border-radius:50%;
-  background:var(--gold-gradient);color:#1A1815;
+  background:var(--gold-gradient);color:#fff;
   display:flex;align-items:center;justify-content:center;
   font-weight:800;font-size:0.78rem;
   flex-shrink:0;
+  box-shadow:0 3px 8px rgba(245,158,11,0.35);
 }
-.ios-steps li i{color:var(--gold);margin:0 3px;}
+.ios-steps li i{color:var(--gold-dark);margin:0 3px;}
 
 /* Toast */
 #toastHost{
@@ -664,52 +753,58 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
 .toast{
   pointer-events:auto;
   display:flex;align-items:center;gap:12px;
-  background:var(--surface);
-  border:1px solid var(--border-strong);
-  border-radius:12px;
+  background:#FFFFFF;
+  border:1px solid rgba(245,158,11,0.3);
+  border-radius:14px;
   padding:12px 14px;
-  box-shadow:0 12px 40px rgba(0,0,0,0.5);
+  box-shadow:0 16px 44px rgba(120,80,20,0.22);
   opacity:0;transform:translateY(-14px);
   transition:all 0.35s cubic-bezier(0.16,1,0.3,1);
 }
 .toast.show{opacity:1;transform:translateY(0);}
 .toast .t-icon{
-  width:32px;height:32px;border-radius:50%;
-  background:var(--gold-gradient);color:#1A1815;
+  width:34px;height:34px;border-radius:50%;
+  background:var(--gold-gradient);color:#fff;
   display:flex;align-items:center;justify-content:center;
-  font-size:0.8rem;flex-shrink:0;
+  font-size:0.85rem;flex-shrink:0;
+  box-shadow:0 4px 12px rgba(245,158,11,0.35);
 }
-.toast.success .t-icon{background:linear-gradient(135deg,#22C55E,#16A34A);color:#fff;}
-.toast.error .t-icon{background:linear-gradient(135deg,#EF4444,#B91C1C);color:#fff;}
+.toast.success .t-icon{background:var(--green-gradient);box-shadow:0 4px 12px rgba(16,185,129,0.35);}
+.toast.error .t-icon{background:linear-gradient(135deg,#F87171,#DC2626);box-shadow:0 4px 12px rgba(239,68,68,0.35);}
 .toast .t-body{flex:1;min-width:0;}
-.toast .t-body strong{display:block;font-size:0.78rem;color:var(--text);font-weight:800;}
-.toast .t-body span{display:block;font-size:0.66rem;color:var(--text-muted);margin-top:2px;word-break:break-word;line-height:1.35;}
+.toast .t-body strong{display:block;font-size:0.8rem;color:var(--text);font-weight:800;}
+.toast .t-body span{display:block;font-size:0.66rem;color:var(--text-muted);margin-top:2px;word-break:break-word;line-height:1.35;font-weight:600;}
 .toast .t-close{
   background:none;border:none;color:var(--text-dim);
   cursor:pointer;font-size:0.8rem;padding:4px;
 }
-.toast .t-close:hover{color:var(--gold);}
+.toast .t-close:hover{color:var(--gold-dark);}
 
 /* Stamp +/- control */
 .stamp-ctrl{
   display:flex;align-items:center;gap:14px;
-  background:var(--surface-2);
-  border:1px solid var(--border);
+  background:#FFFDF8;
+  border:1.5px solid rgba(217,119,6,0.18);
   border-radius:var(--radius-sm);
   padding:12px 16px;
 }
 .stamp-ctrl button{
-  width:40px;height:40px;border-radius:50%;
+  width:42px;height:42px;border-radius:50%;
   border:none;font-size:1rem;font-weight:800;
   cursor:pointer;transition:all var(--transition);
   display:flex;align-items:center;justify-content:center;
 }
-.stamp-ctrl button.plus{background:var(--gold-gradient);color:#1A1815;box-shadow:0 4px 14px rgba(212,175,55,0.3);}
-.stamp-ctrl button.minus{background:var(--surface-3);color:var(--text);border:1px solid var(--border);}
-.stamp-ctrl button:active{transform:scale(0.9);}
+.stamp-ctrl button.plus{background:var(--gold-gradient);color:#fff;box-shadow:0 5px 16px rgba(245,158,11,0.4);}
+.stamp-ctrl button.plus:hover{transform:scale(1.08);}
+.stamp-ctrl button.minus{background:#FFF7ED;color:var(--text);border:1.5px solid rgba(217,119,6,0.2);}
+.stamp-ctrl button.minus:hover{background:#FFEDD9;}
+.stamp-ctrl button:active{transform:scale(0.92);}
 .stamp-ctrl .num{
   font-family:var(--font-display);
-  font-size:1.6rem;color:var(--gold);
+  font-size:1.7rem;
+  background:linear-gradient(135deg,#D97706,#EC4899);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
   min-width:44px;text-align:center;
 }
 
@@ -719,11 +814,12 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
   width:100%;
   aspect-ratio:1/1;
   max-height:420px;
-  background:#000;
-  border:1px solid var(--border-strong);
+  background:#1A1410;
+  border:2px solid rgba(245,158,11,0.4);
   border-radius:var(--radius);
   overflow:hidden;
   display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 30px rgba(200,140,60,0.2);
 }
 .qr-reader-box #qrReaderInner{
   width:100%;height:100%;
@@ -745,7 +841,7 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
 .qr-reader-box #qrReaderInner__dashboard_section_csr button{
   border:none!important;
   background:var(--gold-gradient)!important;
-  color:#1A1815!important;
+  color:#fff!important;
   padding:8px 14px!important;
   border-radius:8px!important;
   font-weight:800!important;
@@ -754,47 +850,51 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
   font-size:0.75rem!important;
 }
 .qr-reader-box #qrReaderInner__dashboard_section_swaplink{
-  color:var(--gold)!important;
+  color:var(--gold-light)!important;
   font-weight:700!important;
   font-size:0.7rem!important;
   text-decoration:none!important;
 }
 .qr-reader-box #qrReaderInner__header_message{
-  color:var(--gold-light)!important;
+  color:#FCD34D!important;
   font-size:0.7rem!important;
   font-family:var(--font)!important;
 }
 .qr-placeholder{
-  text-align:center;color:var(--text-dim);padding:20px;
+  text-align:center;color:#B8A48C;padding:20px;
 }
-.qr-placeholder i{font-size:2.8rem;margin-bottom:12px;opacity:0.55;display:block;color:var(--gold);}
-.qr-placeholder p{font-size:0.72rem;font-weight:700;line-height:1.5;}
+.qr-placeholder i{font-size:2.8rem;margin-bottom:12px;opacity:0.85;display:block;color:var(--gold-light);}
+.qr-placeholder p{font-size:0.75rem;font-weight:700;line-height:1.5;}
 
 .qr-result-card{
-  background:var(--surface-2);
-  border:1px solid var(--border-strong);
+  background:#FFFDF8;
+  border:1.5px solid rgba(245,158,11,0.4);
   border-radius:var(--radius);
   padding:18px;
   animation:cardIn 0.4s cubic-bezier(0.16,1,0.3,1);
+  box-shadow:0 10px 30px rgba(200,140,60,0.14);
 }
 .qr-result-card .big-avatar{
-  width:72px;height:72px;border-radius:50%;
+  width:76px;height:76px;border-radius:50%;
   background:var(--gold-gradient);
   display:flex;align-items:center;justify-content:center;
-  font-size:1.7rem;font-weight:800;color:#1A1815;
+  font-size:1.8rem;font-weight:800;color:#fff;
   margin:0 auto 12px;
   text-transform:uppercase;
-  box-shadow:0 6px 20px rgba(212,175,55,0.3);
+  box-shadow:0 8px 24px rgba(245,158,11,0.4),0 0 0 4px rgba(245,158,11,0.15);
 }
 .qr-result-card h3{
   font-family:var(--font-display);
   text-align:center;
-  font-size:1.1rem;color:var(--text);
+  font-size:1.15rem;
+  background:linear-gradient(135deg,#D97706,#EC4899);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
   margin-bottom:4px;letter-spacing:0.3px;
 }
 .qr-result-card .phone-txt{
   text-align:center;
-  color:var(--text-muted);font-weight:700;font-size:0.75rem;
+  color:var(--text-muted);font-weight:800;font-size:0.78rem;
   margin-bottom:16px;
 }
 .qr-stat-grid{
@@ -802,19 +902,24 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
   margin-bottom:14px;
 }
 .qr-stat{
-  background:var(--surface-3);
-  border:1px solid var(--border);
+  background:#FFFFFF;
+  border:1px solid rgba(217,119,6,0.16);
   border-radius:var(--radius-sm);
   padding:12px;text-align:center;
+  box-shadow:0 3px 10px rgba(200,140,60,0.06);
 }
 .qr-stat .num{
   font-family:var(--font-display);
-  font-size:1.35rem;color:var(--gold);line-height:1.1;
+  font-size:1.45rem;
+  background:linear-gradient(135deg,#D97706,#EC4899);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  line-height:1.1;
 }
-.qr-stat .num small{font-size:0.65rem;color:var(--text-muted);font-weight:700;margin-left:2px;}
+.qr-stat .num small{font-size:0.65rem;color:var(--text-muted);font-weight:800;margin-left:2px;-webkit-text-fill-color:var(--text-muted);}
 .qr-stat .lbl{
   font-size:0.58rem;color:var(--text-muted);
-  font-weight:700;letter-spacing:0.5px;
+  font-weight:800;letter-spacing:0.5px;
   text-transform:uppercase;margin-top:4px;
 }
 .qr-actions{
@@ -824,8 +929,9 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
 .qr-actions .btn{width:100%;}
 
 .qr-scan-line{
-  position:absolute;left:0;right:0;top:50%;height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  position:absolute;left:0;right:0;top:50%;height:3px;
+  background:linear-gradient(90deg,transparent,#FBBF24,#FB923C,transparent);
+  box-shadow:0 0 16px rgba(251,191,36,0.8);
   animation:qrLine 2s linear infinite;
   pointer-events:none;z-index:5;
 }
@@ -840,12 +946,13 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
 .mobile-nav{
   display:none;
   position:fixed;bottom:0;left:0;right:0;
-  background:rgba(15,14,11,0.96);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-top:1px solid var(--border);
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-top:1px solid rgba(217,119,6,0.15);
   padding:8px 4px calc(8px + var(--safe-bottom));
   z-index:60;
   justify-content:space-around;
+  box-shadow:0 -6px 24px rgba(200,140,60,0.1);
 }
 .mobile-nav .nav-item{
   flex-direction:column;gap:3px;padding:8px 2px;
@@ -854,7 +961,10 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
 }
 .mobile-nav .nav-item i{font-size:1.05rem;width:auto;}
 .mobile-nav .nav-item.active::before{display:none;}
-.mobile-nav .nav-item.active{background:rgba(212,175,55,0.14);}
+.mobile-nav .nav-item.active{
+  background:linear-gradient(135deg,rgba(251,191,36,0.25),rgba(249,115,22,0.12));
+  color:#B45309;
+}
 
 @media (max-width:900px){
   .sidebar{display:none;}
@@ -866,23 +976,25 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
     display:flex;align-items:center;justify-content:space-between;
     position:fixed;top:0;left:0;right:0;z-index:55;
     padding:calc(10px + var(--safe-top)) 16px 10px;
-    background:rgba(15,14,11,0.94);
-    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--border);
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(217,119,6,0.15);
+    box-shadow:0 4px 16px rgba(200,140,60,0.08);
   }
   .mobile-topbar .brand{
     display:flex;align-items:center;gap:10px;
   }
   .mobile-topbar .brand img{
-    width:34px;height:34px;border-radius:50%;
-    border:1.5px solid var(--gold);object-fit:cover;
+    width:36px;height:36px;border-radius:50%;
+    border:2px solid #fff;object-fit:cover;
+    box-shadow:0 3px 10px rgba(245,158,11,0.3),0 0 0 2px rgba(245,158,11,0.25);
   }
   .mobile-topbar .brand strong{
     font-family:var(--font-display);
-    font-size:0.9rem;color:var(--text);
+    font-size:0.92rem;color:var(--text);
   }
   .mobile-topbar .brand span{
-    display:block;font-size:0.55rem;color:var(--gold);
+    display:block;font-size:0.55rem;color:var(--gold-dark);
     font-weight:800;letter-spacing:1.2px;text-transform:uppercase;
   }
   .mobile-topbar .topbar-actions{display:flex;gap:6px;align-items:center;}
@@ -890,19 +1002,19 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
     width:auto;padding:8px 12px;
     font-size:0.65rem;
     margin:0;
-    border-radius:8px;
+    border-radius:10px;
     animation:none;
   }
   .mobile-nav{display:flex;}
-  .page-head h2{font-size:1.1rem;}
-  .stat-value{font-size:1.4rem;}
+  .page-head h2{font-size:1.15rem;}
+  .stat-value{font-size:1.45rem;}
 }
 
 @media (max-width:480px){
   .stats-grid{grid-template-columns:1fr 1fr;gap:10px;}
   .stat-card{padding:12px 14px;}
-  .stat-icon{width:34px;height:34px;font-size:0.85rem;margin-bottom:10px;}
-  .stat-value{font-size:1.25rem;}
+  .stat-icon{width:36px;height:36px;font-size:0.9rem;margin-bottom:10px;}
+  .stat-value{font-size:1.3rem;}
   .stat-label{font-size:0.58rem;}
   .main{padding-left:12px;padding-right:12px;}
   .modal{padding:22px 18px;}
@@ -962,7 +1074,7 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
   <!-- SIDEBAR (Desktop) -->
   <aside class="sidebar">
     <div class="sidebar-brand">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKNTcswI0MKvgwch0V6Lal3qR08ozQYkBACiB7xYPitnVeS5yWka1j3Zg&s=10" alt="">
+      <img src="https://kommodo.ai/i/Bss3vnEu1KyQ9XVUjrMK" alt="">
       <div class="brand-text">
         <strong>Selagi Coffee</strong>
         <span>Admin Panel</span>
@@ -990,7 +1102,7 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
   <!-- MOBILE TOPBAR -->
   <div class="mobile-topbar">
     <div class="brand">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKNTcswI0MKvgwch0V6Lal3qR08ozQYkBACiB7xYPitnVeS5yWka1j3Zg&s=10" alt="">
+      <img src="https://kommodo.ai/i/Bss3vnEu1KyQ9XVUjrMK" alt="">
       <div>
         <strong>Selagi Admin</strong>
         <span>Panel</span>
@@ -1055,25 +1167,25 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
         <div class="card">
           <div class="card-title"><i class="fa-solid fa-chart-simple"></i> Sistem Status</div>
           <div style="display:flex;flex-direction:column;gap:12px;">
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;">
               <span style="color:var(--text-muted);font-weight:700;">Firebase Connection</span>
-              <span style="color:var(--green);font-weight:800;" id="dbStatus"><i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> Connected</span>
+              <span style="color:var(--green-dark);font-weight:800;" id="dbStatus"><i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> Connected</span>
             </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;">
               <span style="color:var(--text-muted);font-weight:700;">Promosi Aktif</span>
-              <span style="color:var(--gold);font-weight:800;" id="dbPromos">0</span>
+              <span style="color:var(--gold-dark);font-weight:800;" id="dbPromos">0</span>
             </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;">
               <span style="color:var(--text-muted);font-weight:700;">Item Tebus</span>
-              <span style="color:var(--gold);font-weight:800;" id="dbRedeems">0</span>
+              <span style="color:var(--gold-dark);font-weight:800;" id="dbRedeems">0</span>
             </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;">
               <span style="color:var(--text-muted);font-weight:700;">Info Terkini</span>
-              <span style="color:var(--gold);font-weight:800;" id="dbInfos">0</span>
+              <span style="color:var(--gold-dark);font-weight:800;" id="dbInfos">0</span>
             </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;">
               <span style="color:var(--text-muted);font-weight:700;">PWA Mode</span>
-              <span style="color:var(--gold);font-weight:800;" id="pwaStatus">—</span>
+              <span style="color:var(--gold-dark);font-weight:800;" id="pwaStatus">—</span>
             </div>
           </div>
         </div>
@@ -1117,10 +1229,10 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
             </div>
           </div>
 
-          <div style="margin-top:14px;padding:10px 12px;background:rgba(212,175,55,0.06);border:1px solid var(--border);border-radius:var(--radius-sm);">
-            <p style="font-size:0.65rem;color:var(--text-muted);font-weight:600;line-height:1.5;">
-              <i class="fa-solid fa-circle-info" style="color:var(--gold);"></i>
-              <strong style="color:var(--gold-light);">Tip:</strong> Pastikan kamera menghadap kod QR dengan jelas dan pencahayaan mencukupi. QR akan dikesan secara automatik.
+          <div style="margin-top:14px;padding:12px;background:linear-gradient(135deg,#FEF3C7,#FDE68A);border:1px solid rgba(245,158,11,0.3);border-radius:var(--radius-sm);">
+            <p style="font-size:0.68rem;color:#92400E;font-weight:700;line-height:1.5;">
+              <i class="fa-solid fa-circle-info" style="color:var(--gold-dark);"></i>
+              <strong style="color:#78350F;">Tip:</strong> Pastikan kamera menghadap kod QR dengan jelas dan pencahayaan mencukupi. QR akan dikesan secara automatik.
             </p>
           </div>
         </div>
@@ -1155,7 +1267,7 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
       <div class="card">
         <div class="card-title">
           <i class="fa-solid fa-address-book"></i> Senarai Pelanggan
-          <span style="margin-left:auto;font-size:0.65rem;color:var(--gold);font-weight:800;" id="customerListCount">0</span>
+          <span style="margin-left:auto;font-size:0.68rem;color:var(--gold-dark);font-weight:800;" id="customerListCount">0</span>
         </div>
         <div id="customerList" class="customer-list">
           <div class="empty-state"><i class="fa-solid fa-spinner fa-spin"></i><p>Memuatkan...</p></div>
@@ -1280,7 +1392,7 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
 
       <div class="card">
         <div class="card-title"><i class="fa-solid fa-bell"></i> Notifikasi Massa</div>
-        <p style="font-size:0.72rem;color:var(--text-muted);font-weight:600;margin-bottom:16px;line-height:1.5;">
+        <p style="font-size:0.72rem;color:var(--text-muted);font-weight:700;margin-bottom:16px;line-height:1.5;">
           Notifikasi akan dihantar secara automatik kepada semua pelanggan yang membuka aplikasi.
         </p>
         <div class="form-row">
@@ -1501,109 +1613,162 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
 <!-- ============ PWA SETUP (Manifest + Icons) ============ -->
 <script>
 (function(){
-  // ---- 1. Generate PWA icons via Canvas ----
-  function generateIcon(size) {
+  // ============================================================
+  // ICON SOURCE — tukar URL ini sahaja jika nak ganti icon lain
+  // ============================================================
+  const ICON_SOURCE_URL = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKNTcswI0MKvgwch0V6Lal3qR08ozQYkBACiB7xYPitnVeS5yWka1j3Zg&s=10';
+
+  // ============================================================
+  // Helper: Load image dari URL → resize → return dataURL (base64)
+  // ============================================================
+  function loadAndResizeImage(url, size) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        try {
+          const c = document.createElement('canvas');
+          c.width = size;
+          c.height = size;
+          const ctx = c.getContext('2d');
+
+          // Background putih (untuk elak transparent jadi hitam)
+          ctx.fillStyle = '#FFFFFF';
+          ctx.fillRect(0, 0, size, size);
+
+          // Kira posisi supaya gambar center & tak "stretched"
+          const scale = Math.min(size / img.width, size / img.height);
+          const w = img.width * scale;
+          const h = img.height * scale;
+          const x = (size - w) / 2;
+          const y = (size - h) / 2;
+
+          ctx.drawImage(img, x, y, w, h);
+
+          resolve(c.toDataURL('image/png'));
+        } catch (err) {
+          reject(err);
+        }
+      };
+      img.onerror = () => reject(new Error('Gagal load icon dari URL'));
+      img.src = url;
+    });
+  }
+
+  // ============================================================
+  // Helper: Fallback icon (kalau URL gagal — guna gradient + SC)
+  // ============================================================
+  function generateFallbackIcon(size) {
     const c = document.createElement('canvas');
     c.width = size; c.height = size;
     const ctx = c.getContext('2d');
-
-    // Background gradient
     const grad = ctx.createLinearGradient(0, 0, size, size);
-    grad.addColorStop(0, '#1A1611');
-    grad.addColorStop(1, '#0F0E0B');
+    grad.addColorStop(0, '#FBBF24');
+    grad.addColorStop(1, '#F97316');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, size, size);
 
-    // Gold outer circle
     const cx = size / 2, cy = size / 2;
     const r = size * 0.36;
-    ctx.strokeStyle = '#D4AF37';
+    ctx.strokeStyle = '#FFFFFF';
     ctx.lineWidth = size * 0.035;
     ctx.beginPath();
     ctx.arc(cx, cy, r, 0, Math.PI * 2);
     ctx.stroke();
 
-    // Inner gold circle (subtle)
-    ctx.strokeStyle = 'rgba(212,175,55,0.35)';
-    ctx.lineWidth = size * 0.012;
-    ctx.beginPath();
-    ctx.arc(cx, cy, r * 0.78, 0, Math.PI * 2);
-    ctx.stroke();
-
-    // "SC" text
-    ctx.fillStyle = '#D4AF37';
+    ctx.fillStyle = '#FFFFFF';
     ctx.font = `bold ${size * 0.36}px "Fredoka One", Arial, sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText('SC', cx, cy + size * 0.015);
-
     return c.toDataURL('image/png');
   }
 
-  const icon192 = generateIcon(192);
-  const icon512 = generateIcon(512);
+  // ============================================================
+  // MAIN: Build manifest + register
+  // ============================================================
+  async function setupPWA() {
+    let icon192, icon512;
 
-  // ---- 2. Build manifest dynamically ----
-  const manifest = {
-    name: "Selagi Coffee Admin Panel",
-    short_name: "Selagi Admin",
-    description: "Panel admin untuk sistem loyalty Selagi Coffee",
-    start_url: location.pathname + location.search,
-    scope: location.pathname.substring(0, location.pathname.lastIndexOf('/') + 1) || '/',
-    display: "standalone",
-    display_override: ["standalone", "minimal-ui"],
-    orientation: "portrait-primary",
-    background_color: "#0F0E0B",
-    theme_color: "#0F0E0B",
-    lang: "ms",
-    dir: "ltr",
-    categories: ["business", "food", "productivity"],
-    icons: [
-      { src: icon192, sizes: "192x192", type: "image/png", purpose: "any" },
-      { src: icon512, sizes: "512x512", type: "image/png", purpose: "any" },
-      { src: icon192, sizes: "192x192", type: "image/png", purpose: "maskable" },
-      { src: icon512, sizes: "512x512", type: "image/png", purpose: "maskable" }
-    ],
-    shortcuts: [
-      {
-        name: "Scan QR",
-        short_name: "Scan",
-        description: "Scan QR pelanggan",
-        url: location.pathname + "?page=qr",
-        icons: [{ src: icon192, sizes: "192x192" }]
-      }
-    ]
-  };
+    try {
+      // Cuba load dari URL (paralel supaya laju)
+      [icon192, icon512] = await Promise.all([
+        loadAndResizeImage(ICON_SOURCE_URL, 192),
+        loadAndResizeImage(ICON_SOURCE_URL, 512)
+      ]);
+      console.log('[PWA] Icon berjaya dimuat dari URL');
+    } catch (err) {
+      // Kalau gagal (CORS / offline / URL rosak) — guna fallback
+      console.warn('[PWA] Gagal load icon URL, guna fallback:', err.message);
+      icon192 = generateFallbackIcon(192);
+      icon512 = generateFallbackIcon(512);
+    }
 
-  // Update apple-touch-icon to use generated one
-  const appleIcon = document.querySelector('link[rel="apple-touch-icon"]');
-  if (appleIcon) appleIcon.href = icon192;
-  // Also set the favicon to the generated PNG for crispness
-  const favicon = document.querySelector('link[rel="icon"]');
-  if (favicon) {
-    favicon.type = 'image/png';
-    favicon.href = icon192;
+    // ---- Update favicon & apple-touch-icon ----
+    const appleIcon = document.querySelector('link[rel="apple-touch-icon"]');
+    if (appleIcon) appleIcon.href = icon192;
+    const favicon = document.querySelector('link[rel="icon"]');
+    if (favicon) {
+      favicon.type = 'image/png';
+      favicon.href = icon192;
+    }
+
+    // ---- Build manifest ----
+    const manifest = {
+      name: "Selagi Coffee Admin Panel",
+      short_name: "Selagi Admin",
+      description: "Panel admin untuk sistem loyalty Selagi Coffee",
+      start_url: location.pathname + location.search,
+      scope: location.pathname.substring(0, location.pathname.lastIndexOf('/') + 1) || '/',
+      display: "standalone",
+      display_override: ["standalone", "minimal-ui"],
+      orientation: "portrait-primary",
+      background_color: "#FFF8F0",
+      theme_color: "#FFF8F0",
+      lang: "ms",
+      dir: "ltr",
+      categories: ["business", "food", "productivity"],
+      icons: [
+        { src: icon192, sizes: "192x192", type: "image/png", purpose: "any" },
+        { src: icon512, sizes: "512x512", type: "image/png", purpose: "any" },
+        { src: icon192, sizes: "192x192", type: "image/png", purpose: "maskable" },
+        { src: icon512, sizes: "512x512", type: "image/png", purpose: "maskable" }
+      ],
+      shortcuts: [
+        {
+          name: "Scan QR",
+          short_name: "Scan",
+          description: "Scan QR pelanggan",
+          url: location.pathname + "?page=qr",
+          icons: [{ src: icon192, sizes: "192x192", type: "image/png" }]
+        }
+      ]
+    };
+
+    // ---- Inject manifest ----
+    const manifestBlob = new Blob([JSON.stringify(manifest)], { type: 'application/manifest+json' });
+    const manifestURL = URL.createObjectURL(manifestBlob);
+    const manifestLink = document.createElement('link');
+    manifestLink.rel = 'manifest';
+    manifestLink.href = manifestURL;
+    document.head.appendChild(manifestLink);
+    window.__pwaManifestURL = manifestURL;
+
+    // ---- Update logo UI (login + sidebar + topbar) ----
+    // supaya sama dengan icon PWA
+    document.querySelectorAll('.login-logo, .sidebar-brand img, .mobile-topbar .brand img')
+      .forEach(el => { el.src = icon192; });
   }
 
-  // ---- 3. Inject manifest link ----
-  const manifestBlob = new Blob([JSON.stringify(manifest)], { type: 'application/manifest+json' });
-  const manifestURL = URL.createObjectURL(manifestBlob);
+  // Jalankan setup
+  setupPWA();
 
-  const manifestLink = document.createElement('link');
-  manifestLink.rel = 'manifest';
-  manifestLink.href = manifestURL;
-  document.head.appendChild(manifestLink);
-
-  // Keep for later cleanup (optional)
-  window.__pwaManifestURL = manifestURL;
-
-  // ---- 4. Service Worker (best-effort via Blob) ----
-  // Nota: Kebanyakan browser (Chrome) TIDAK membenarkan SW dari Blob URL
-  // tetapi Safari modern kadang boleh. Kita cuba, kalau gagal, abaikan.
+  // ============================================================
+  // SERVICE WORKER (kekal sama)
+  // ============================================================
   if ('serviceWorker' in navigator) {
     const swCode = `
-      // Selagi Admin PWA Service Worker
-      const CACHE = 'selagi-admin-v1';
+      const CACHE = 'selagi-admin-v4';
       const ASSETS = [
         './',
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
@@ -1628,7 +1793,6 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
       self.addEventListener('fetch', (e) => {
         const req = e.request;
         if (req.method !== 'GET') return;
-        // Jangan cache Firebase (realtime perlu online)
         if (req.url.includes('firebase') || req.url.includes('googleapis.com')) return;
 
         e.respondWith(
@@ -1650,22 +1814,16 @@ input[type="date"].form-control::-webkit-calendar-picker-indicator{
       const swBlob = new Blob([swCode], { type: 'application/javascript' });
       const swURL = URL.createObjectURL(swBlob);
       navigator.serviceWorker.register(swURL, { scope: './' })
-        .then(() => {
-          console.log('[PWA] Service Worker registered (blob)');
-        })
-        .catch(err => {
-          console.warn('[PWA] Service Worker registration skipped:', err.message);
-        });
+        .then(() => console.log('[PWA] Service Worker registered'))
+        .catch(err => console.warn('[PWA] SW skipped:', err.message));
     } catch (err) {
       console.warn('[PWA] SW blob error:', err);
     }
   }
 
-  // ---- 5. Register SW from same-origin if exists (optional external) ----
-  // Kalau admin letak sw.js sendiri, ia akan cuba register
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js', { scope: './' })
-      .catch(() => { /* tiada sw.js — abaikan */ });
+      .catch(() => {});
   }
 })();
 </script>
@@ -1736,14 +1894,12 @@ window.toast = toast;
    ============ PWA: INSTALL PROMPT & DETECTION ===================
    ================================================================ */
 
-/** Kesan jika app sudah dipasang (standalone mode) */
 function isStandalone() {
   return window.matchMedia('(display-mode: standalone)').matches ||
          window.navigator.standalone === true ||
          document.referrer.startsWith('android-app://');
 }
 
-/** Kesan iOS Safari (bukan Chrome/Firefox di iOS) */
 function isIosSafari() {
   const ua = window.navigator.userAgent;
   const isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
@@ -1751,13 +1907,11 @@ function isIosSafari() {
   return isIOS && isSafari;
 }
 
-/** Kesan iOS (semua browser) */
 function isIos() {
   const ua = window.navigator.userAgent;
   return /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 }
 
-/** Papar butang install */
 function showInstallButtons() {
   const s = document.getElementById('installBtnSidebar');
   const t = document.getElementById('installBtnTopbar');
@@ -1767,7 +1921,6 @@ function showInstallButtons() {
   if (hint) hint.classList.remove('hidden');
 }
 
-/** Sembunyi butang install */
 function hideInstallButtons() {
   const s = document.getElementById('installBtnSidebar');
   const t = document.getElementById('installBtnTopbar');
@@ -1777,9 +1930,7 @@ function hideInstallButtons() {
   if (hint) hint.classList.add('hidden');
 }
 
-/** Tindakan bila butang install ditekan */
 window.promptInstall = async function() {
-  // 1. Jika ada deferredPrompt (Android/Chrome) — guna native prompt
   if (deferredPrompt) {
     try {
       deferredPrompt.prompt();
@@ -1796,13 +1947,11 @@ window.promptInstall = async function() {
     }
   }
 
-  // 2. iOS Safari — papar arahan
   if (isIos()) {
     document.getElementById('iosInstallModal').classList.add('active');
     return;
   }
 
-  // 3. Fallback — arahan generik
   document.getElementById('genericInstallModal').classList.add('active');
 };
 
@@ -1813,46 +1962,35 @@ window.closeGenericInstall = function() {
   document.getElementById('genericInstallModal').classList.remove('active');
 };
 
-/** Event: beforeinstallprompt */
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
   showInstallButtons();
 });
 
-/** Event: appinstalled */
 window.addEventListener('appinstalled', () => {
   deferredPrompt = null;
   hideInstallButtons();
   toast('Berjaya Dipasang!', 'Selagi Admin telah dipasang di peranti anda.', 'success');
 });
 
-/** Init PWA install detection */
 function initPwaInstall() {
-  // Update status
   const stat = document.getElementById('pwaStatus');
   if (stat) {
     if (isStandalone()) stat.textContent = 'Standalone';
     else stat.textContent = 'Browser';
   }
 
-  // Jika sudah standalone — sembunyi butang install
   if (isStandalone()) {
     hideInstallButtons();
     return;
   }
 
-  // iOS — sentiasa tunjuk butang (kerana takkan dapat beforeinstallprompt)
   if (isIos()) {
     showInstallButtons();
     return;
   }
 
-  // Untuk Android/Desktop: tunggu beforeinstallprompt event
-  // (butang akan muncul bila event fires)
-
-  // Fallback: jika selepas 3 saat tiada event, tapi user agent adalah
-  // Chrome/Android, kita tetap tunjuk butang supaya user boleh cuba
   setTimeout(() => {
     if (!deferredPrompt && !isStandalone() && /Chrome|Edg|SamsungBrowser/.test(navigator.userAgent)) {
       showInstallButtons();
@@ -1869,7 +2007,6 @@ function updateOnlineStatus() {
   if (!banner) return;
   if (navigator.onLine) {
     if (!banner.classList.contains('hidden')) {
-      // Tunjuk "kembali online" sebentar
       banner.classList.remove('hidden');
       banner.classList.add('online');
       banner.innerHTML = '<i class="fa-solid fa-circle-check"></i> <span>Kembali online</span>';
@@ -1940,7 +2077,6 @@ window.goPage = function(page) {
   if (page === 'broadcast') loadBroadcasts();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  // Update URL untuk shortcut PWA (optional)
   try {
     const url = new URL(location.href);
     if (page === 'dashboard') url.searchParams.delete('page');
@@ -1957,7 +2093,6 @@ function bootAdmin() {
   initPwaInstall();
   updateOnlineStatus();
 
-  // Handle ?page=qr dari shortcut PWA
   try {
     const p = new URLSearchParams(location.search).get('page');
     if (p && document.getElementById('page-' + p)) {
@@ -2181,7 +2316,7 @@ window.handlePromoUpload = async function(e) {
     document.getElementById('promoPreviewImg').src = b64;
     document.getElementById('promoPreview').classList.add('show');
     info.textContent = `✅ Gambar sedia (${(b64.length/1024).toFixed(0)} KB)`;
-    info.style.color = 'var(--green)';
+    info.style.color = 'var(--green-dark)';
   } catch (err) {
     info.textContent = '❌ ' + err.message;
     info.style.color = 'var(--red)';
@@ -2225,7 +2360,7 @@ function renderPromos(data) {
     const row = document.createElement('div');
     row.className = 'data-row';
     row.innerHTML = `
-      <div class="thumb">${p.img ? `<img src="${p.img}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">` : '<i class="fa-solid fa-rectangle-ad"></i>'}</div>
+      <div class="thumb">${p.img ? `<img src="${p.img}" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">` : '<i class="fa-solid fa-rectangle-ad"></i>'}</div>
       <div class="data-info">
         <h5>${escapeHtml(p.title || 'Promosi')}</h5>
         <p>${escapeHtml(p.desc || '')}</p>
@@ -2643,13 +2778,13 @@ async function lookupCustomerByPhone(phone) {
     if (!found) {
       qrCurrentCust = null;
       result.innerHTML = `
-        <div class="qr-result-card" style="border-color:rgba(239,68,68,0.4);">
-          <div class="big-avatar" style="background:linear-gradient(135deg,#EF4444,#B91C1C);color:#fff;box-shadow:0 6px 20px rgba(239,68,68,0.3);">
+        <div class="qr-result-card" style="border-color:rgba(239,68,68,0.4);background:linear-gradient(135deg,#FFF5F5,#FEE2E2);">
+          <div class="big-avatar" style="background:linear-gradient(135deg,#F87171,#DC2626);box-shadow:0 8px 24px rgba(239,68,68,0.35);">
             <i class="fa-solid fa-user-slash"></i>
           </div>
-          <h3>Pelanggan Tidak Dijumpai</h3>
+          <h3 style="background:linear-gradient(135deg,#DC2626,#B91C1C);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Pelanggan Tidak Dijumpai</h3>
           <p class="phone-txt">📱 ${escapeHtml(phone)}</p>
-          <p style="text-align:center;font-size:0.7rem;color:var(--text-muted);font-weight:600;line-height:1.5;">
+          <p style="text-align:center;font-size:0.7rem;color:var(--text-muted);font-weight:700;line-height:1.5;">
             Akaun ini belum berdaftar dalam sistem.<br>Minta pelanggan daftar terlebih dahulu.
           </p>
         </div>`;
